@@ -1,0 +1,51 @@
+<div class="container-fluid booking">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 details">
+      <h2>Booking number #<%= @booking.id %></h2>
+
+      <table class="table table-customer-information">
+        <tbody>
+        <tr>
+          <td>Name:</td>
+          <td><%= @booking.name %></td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td><%= @booking.address %></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><a href="mailto:<%= @booking.email %>"><%= @booking.email %></a></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h2>Ticket Details</h2>
+
+      <table class="table">
+        <tr>
+          <th class="center"> No. </th>
+          <th> Ticket Type </th>
+          <th class="center"> Quantity </th>
+          <th> Unit Price </th>
+        </tr>
+
+        <% @booking.tickets.each do |ticket| %>
+        <tr>
+          <td class="center"> <%= ticket.id %> </td>
+          <td> <%= ticket.ticket_type.name %> </td>
+          <td class="center"> <%= ticket.quantity %></td>
+          <td> <%= number_to_currency(ticket.ticket_type.price, unit: 'VND ', precision: 0) %></td>
+        </tr>
+        <% end %>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td> <%= number_to_currency(@booking.total, unit: 'VND ', precision: 0) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

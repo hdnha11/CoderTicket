@@ -8,6 +8,7 @@
 @import "nav";
 @import "events";
 @import "tickets";
+@import "bookings";
 
 body {
   font-family: 'Open Sans';
@@ -16,4 +17,6 @@ body {
   background-color: rgb(216, 87, 66);
   border: 2px solid rgb(241, 112, 91);
 }
-
+.center {
+  text-align: center;
+}
