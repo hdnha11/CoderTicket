@@ -12,7 +12,7 @@
     font-weight: bold;
     text-align: center;
     text-shadow: rgba(0, 0, 0, 0.498039) 2px 3px 6px;
-  } 
+  }
   input {
     margin: auto;
     margin-top: 20px;
@@ -86,6 +86,7 @@
         position: fixed;
         min-height: 700px;
         height: 100%;
+        text-align: center;
         p {
             text-align: center;
             text-transform: uppercase;
@@ -99,12 +100,16 @@
             padding-left: 40px;
             padding-right: 40px;
             font-size: 14px;
+            text-align: left;
             button {
                 margin-top: 40px;
             }
             .price {
                 font-weight: bold;
                 font-size: 18px;
+            }
+            .row {
+                margin-top: 15px;
             }
         }
         a {
