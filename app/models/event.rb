@@ -10,6 +10,10 @@ class Event < ActiveRecord::Base
     where('draft is not true and ends_at >= ?', DateTime.current)
   end
 
+  def self.draft_events
+    where(draft: true)
+  end
+
   def self.search(query)
     where('draft is not true and lower(name) like ?', "%#{query.downcase}%")
   end

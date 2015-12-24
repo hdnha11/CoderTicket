@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'bootstrap', '~> 4.0.0.alpha1'
+gem 'bootstrap-datepicker-rails'
 gem 'simple_form'
 gem 'quiet_assets'
 gem 'better_errors', group: :development

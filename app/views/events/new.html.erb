@@ -1,0 +1,48 @@
+<div class="container-fluid event-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 details">
+        <%= form_for @event, class: 'form-horizontal' do |f| %>
+          <fieldset class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control", placeholder: "Event name" %>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <div class="col-md-6 first">
+              <%= f.label 'Start time' %>
+              <%= f.text_field :starts_at, class: "form-control", 'data-provide' => 'datepicker' %>
+            </div>
+
+            <div class="col-md-6 last">
+              <%= f.label 'End time' %>
+              <%= f.text_field :ends_at, class: "form-control", 'data-provide' => 'datepicker' %>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <%= f.label 'Image url' %>
+            <%= f.text_field :hero_image_url, class: "form-control", placeholder: "Image url" %>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <%= f.label 'Venue' %>
+            <%= f.collection_select  :venue_id, Venue.all, :id, :name, {prompt: true}, class: 'form-control' %>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <%= f.label 'Category' %>
+            <%= f.collection_select  :category_id, Category.all, :id, :name, {prompt: true}, class: 'form-control' %>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <%= f.label 'Description' %>
+            <%= f.text_area :extended_html_description, class: "form-control", rows: 4, placeholder: 'Event description here...' %>
+          </fieldset>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block">Create Event</button>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .events-header {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -54,95 +53,109 @@
 }
 
 .events-list {
-    margin-top: 20px;
-    padding: 30px 150px;
-    background-color: $gray-lighter;
-    .card {
-        margin-bottom: 20px;
-        img {
-            max-width: 100%;
-        }
-        &:hover {
-            box-shadow: 0 0 8px $gray;
-            transition: 0.5s;
-        }
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
+  margin-top: 20px;
+  padding: 30px 150px;
+  background-color: $gray-lighter;
+  .card {
+    margin-bottom: 20px;
+    img {
+      max-width: 100%;
     }
-    a {
-        text-decoration: none;
-        color: $gray-dark;
+    &:hover {
+      box-shadow: 0 0 8px $gray;
+      transition: 0.5s;
     }
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $gray-dark;
+  }
 }
 
 .events-detail {
-    .sidebar {
-        padding-top: 80px;
-        color: rgb(233, 237, 240);
-        background-color: #303B46;
-        float: left;
-        position: fixed;
-        min-height: 700px;
-        height: 100%;
+  .sidebar {
+    padding-top: 80px;
+    color: rgb(233, 237, 240);
+    background-color: #303B46;
+    float: left;
+    position: fixed;
+    min-height: 700px;
+    height: 100%;
+    text-align: center;
+    z-index: 100;
+    p {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: larger;
+      font-family: 'serif';
+      i.fa {
+        font-size: 30px;
+      }
+    }
+    .ticket-list {
+      padding-left: 40px;
+      padding-right: 40px;
+      font-size: 14px;
+      text-align: left;
+      button {
+        margin-top: 40px;
+      }
+      .price {
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .row {
+        margin-top: 15px;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+  .event-content {
+    background-color: white;
+    float: right;
+    h3 {
+      font-weight: bold;
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
+    .hero-img {
+      min-height: 400px;
+    }
+    .container {
+      margin-left: 50px;
+      margin-top: 30px;
+      .time-details,
+      .venue-details {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+      .img-spacer {
         text-align: center;
-        z-index: 100;
-        p {
-            text-align: center;
-            text-transform: uppercase;
-            font-size: larger;
-            font-family: 'serif';
-            i.fa {
-                font-size: 30px;
-            }
-        }
-        .ticket-list {
-            padding-left: 40px;
-            padding-right: 40px;
-            font-size: 14px;
-            text-align: left;
-            button {
-                margin-top: 40px;
-            }
-            .price {
-                font-weight: bold;
-                font-size: 18px;
-            }
-            .row {
-                margin-top: 15px;
-            }
-        }
-        a {
-            text-decoration: none;
-            color: white;
-        }
+        margin: 60px;
+      }
+      .extended-description {
+        margin-top: 20px;
+      }
     }
-    .event-content {
-        background-color: white;
-        float: right;
-        h3 {
-            font-weight: bold;
-            font-size: 25px;
-            margin-bottom: 30px;
-        }
-        .hero-img {
-            min-height: 400px;
-        }
-        .container {
-            margin-left: 50px;
-            margin-top: 30px;
-            .time-details, .venue-details {
-                margin-left: 20px;
-                margin-bottom: 20px;
-            }
-            .img-spacer {
-                text-align: center;
-                margin: 60px;
-            }
-            .extended-description {
-                margin-top: 20px;
-            }
-        }
+  }
+}
+
+.event-container {
+  .details {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    .first {
+      padding-left: 0;
     }
+    .last {
+      padding-right: 0;
+    }
+  }
 }
