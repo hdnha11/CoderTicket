@@ -13632,7 +13632,7 @@ var Tooltip = (function ($) {
    * Tether - http://github.hubspot.com/tether/
    */
   if (window.Tether === undefined) {
-    throw new Error('Bootstrap tooltips require Tether (http://github.hubspot.com/tether/)');
+    // throw new Error('Bootstrap tooltips require Tether (http://github.hubspot.com/tether/)');
   }
 
   /**
@@ -16649,7 +16649,7 @@ var Popover = (function ($) {
 /**
  * French (Switzerland) translation for bootstrap-datepicker
  * Christoph Jossi <c.jossi@ascami.ch>
- * Based on 
+ * Based on
  * French translation for bootstrap-datepicker
  * Nico Mollet <nico.mollet@gmail.com>
  */
@@ -16799,7 +16799,7 @@ var Popover = (function ($) {
 /**
  * Italian (Switzerland) translation for bootstrap-datepicker
  * Christoph Jossi <c.jossi@ascami.ch>
- * Based on 
+ * Based on
  * Italian translation for bootstrap-datepicker
  * Enrico Rubboli <rubboli@gmail.com>
  */
