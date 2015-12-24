@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :venue
   belongs_to :category
+  belongs_to :user
   has_many :ticket_types
 
   validates_presence_of :extended_html_description, :venue, :category, :starts_at
@@ -10,8 +11,12 @@ class Event < ActiveRecord::Base
     where('draft is not true and ends_at >= ?', DateTime.current)
   end
 
-  def self.draft_events
-    where(draft: true)
+  def self.user_draft_events(user)
+    where(draft: true, user: user)
+  end
+
+  def self.user_events(user)
+    where(user: user)
   end
 
   def self.search(query)

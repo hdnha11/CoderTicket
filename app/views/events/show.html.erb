@@ -24,9 +24,12 @@
             <button class='btn btn-lg btn-block btn-danger'> BOOK NOW </button>
           <% end %>
         <% end %>
-        <% if @event.draft %>
+        <% if @event.draft && current_user == @event.user %>
           <%= link_to update_event_path(@event, publish: true), method: :put do %>
             <button class='btn btn-lg btn-block btn-primary'> PUBLISH EVENT </button>
+          <% end %>
+          <%= link_to edit_event_path(@event) do %>
+            <button class='btn btn-lg btn-block btn-success'> EDIT EVENT </button>
           <% end %>
         <% end %>
       </div>

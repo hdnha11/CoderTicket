@@ -56,8 +56,9 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  describe 'Event' do
+  describe 'class method' do
     before do
+      @user = User.create
       @event1 = Event.create(
         name: 'Event',
         venue: Venue.new,
@@ -65,7 +66,8 @@ RSpec.describe Event, type: :model do
         ends_at: DateTime.current + 1,
         extended_html_description: 'content',
         category: Category.new,
-        draft: false
+        draft: false,
+        user: @user
       )
       @event2 = Event.create(
         name: 'Event 2',
@@ -74,7 +76,8 @@ RSpec.describe Event, type: :model do
         ends_at: DateTime.current + 10,
         extended_html_description: 'content',
         category: Category.new,
-        draft: true
+        draft: true,
+        user: @user
       )
     end
 
@@ -85,9 +88,15 @@ RSpec.describe Event, type: :model do
       end
     end
 
-    describe '#draft_events' do
+    describe '#user_draft_events' do
       it 'should return a list of draft events' do
-        expect(Event.draft_events).to include(@event2)
+        expect(Event.user_draft_events(@user)).to include(@event2)
+      end
+    end
+
+    describe '#user_events' do
+      it 'should return a list of events which were created by user' do
+        expect(Event.user_events(@user)).to match_array([@event1, @event2])
       end
     end
 

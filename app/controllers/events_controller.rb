@@ -3,11 +3,14 @@ class EventsController < ApplicationController
 
   def index
     @search = params[:search]
+    me = params[:me] || false
     draft = params[:draft] || false
     if @search
       @events = Event.search(@search)
     elsif draft
-      @events = Event.draft_events
+      @events = Event.user_draft_events(current_user)
+    elsif me
+      @events = Event.user_events(current_user)
     else
       @events = Event.current_events
     end
@@ -22,9 +25,16 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
     @event.draft = true
+    @event.starts_at = DateTime.strptime(params[:event][:starts_at], '%m/%d/%Y')
+    @event.ends_at = DateTime.strptime(params[:event][:ends_at], '%m/%d/%Y')
     @event.venue = Venue.find(params[:event][:venue_id])
     @event.category = Category.find(params[:event][:category_id])
 
@@ -36,22 +46,40 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
+
+    return redirect_to events_path(@event), flash: {error: 'You have no permission to update this event.'} if current_user != @event.user
+
     is_publish = params[:publish] || false
+    success_message = ''
+    go_where = nil
+
     if is_publish
-      @event = Event.find(params[:id])
       @event.draft = false
-      if @event.save
-        redirect_to events_path, flash: {success: 'The event has been published!'}
-      else
-        redirect_to event_path(@event), flash: {error: 'Oops! Something went wrong when publishing.'}
-      end
+      success_message = 'The event has been published!'
+      go_where = events_path
     else
+      @event.venue = Venue.find(params[:event][:venue_id])
+      @event.category = Category.find(params[:event][:category_id])
+      @event.name = params[:event][:name]
+      @event.starts_at = DateTime.strptime(params[:event][:starts_at], '%m/%d/%Y')
+      @event.ends_at = DateTime.strptime(params[:event][:ends_at], '%m/%d/%Y')
+      @event.hero_image_url = params[:event][:hero_image_url]
+      @event.extended_html_description = params[:event][:extended_html_description]
+      success_message = 'The event has been updated!'
+      go_where = event_path(@event)
+    end
+
+    if @event.save
+      redirect_to go_where, flash: {success: success_message}
+    else
+      redirect_to event_path(@event), flash: {error: 'Oops! Something went wrong when publishing.'}
     end
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :starts_at, :ends_at, :hero_image_url, :extended_html_description)
+    params.require(:event).permit(:name, :hero_image_url, :extended_html_description)
   end
 end
