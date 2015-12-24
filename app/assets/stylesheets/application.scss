@@ -20,3 +20,12 @@ body {
 .center {
   text-align: center;
 }
+.app-message {
+  position: fixed;
+  top: 64px;
+  right: 10px;
+  z-index: 2000;
+  .close-message {
+    margin-left: 10px;
+  }
+}
