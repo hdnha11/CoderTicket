@@ -1,12 +1,12 @@
-# Homework 3 - *Name of App*
+# Homework 3 - *NhaTicket*
 
-**Name of your app** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
+**NhaTicket** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events.
 
-Submitted by: **Your Name Here**
+Submitted by: **Hoang Duc Nha**
 
-Time spent: **X** hours
+Time spent: **15** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://nha-ticket.herokuapp.com/**
 
 SimpleCov Test Coverage: **Insert percentage or link to report here**
 
@@ -18,37 +18,37 @@ The following **required** functionality is complete:
 
 #### Events
 
-* [ ] Users can see a list of upcoming events. Past events should not be shown. **HINT**: Good candidate for a test.
-* [ ] Users can search for events from the homepage.
-* [ ] Users can click on an event to see details about the event. 
-* [ ] Users can click on "Book Now" to go to a page to purchase tickets.
+* [x] Users can see a list of upcoming events. Past events should not be shown. **HINT**: Good candidate for a test.
+* [x] Users can search for events from the homepage.
+* [x] Users can click on an event to see details about the event.
+* [x] Users can click on "Book Now" to go to a page to purchase tickets.
 
 #### Tickets
 
-* [x] Each event can have multiple types of tickets, each with a different `price` and `max_quantity`. 
-* [ ] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
-* [ ] Users cannot buy more tickets than the quantity available.
-* [ ] Users can only buy up to 10 of a ticket type at a time.
-* [ ] Users cannot buy tickets to events that occur in the past. 
+* [x] Each event can have multiple types of tickets, each with a different `price` and `max_quantity`.
+* [x] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
+* [x] Users cannot buy more tickets than the quantity available.
+* [x] Users can only buy up to 10 of a ticket type at a time.
+* [x] Users cannot buy tickets to events that occur in the past.
 
 #### Users
 
-* [ ] User can sign up by providing their email, password, and name. 
-* [ ] User can login using an email and password. 
-* [ ] Users can create events. 
-* [ ] Users must click "publish event" before an event becomes viewable to other users. 
-* [ ] Users can create ticket types for that event. 
+* [x] User can sign up by providing their email, password, and name.
+* [x] User can login using an email and password.
+* [x] Users can create events.
+* [x] Users must click "publish event" before an event becomes viewable to other users.
+* [ ] Users can create ticket types for that event.
 * [ ] Users can create venues.
-* [ ] An event must have at least one `ticket_type` defined before it can be published. 
-* [ ] User can see a list of events he or she has created.
-* [ ] Users can edit their event after creation. But only the user who created the event can edit the event. 
+* [ ] An event must have at least one `ticket_type` defined before it can be published.
+* [x] User can see a list of events he or she has created.
+* [x] Users can edit their event after creation. But only the user who created the event can edit the event.
 
 ### Optional Stories
 
 * [ ] Users can log in with Facebook.
 * [ ] Users receive an email when they have purchased a ticket.
 * [ ] Users can see "related events" when browsing an event. Related events should belong to the same category and be in the same region.
-* [ ] User A can allow User B to edit User A's event. In other words, an event owner can assign other people to be "event admins". 
+* [ ] User A can allow User B to edit User A's event. In other words, an event owner can assign other people to be "event admins".
 * [ ] Ticket types have an optional "minimum" purchase quantity. ([Example Screenshot](http://i.imgur.com/DOYtAR0.png))
 * [ ] Events are automatically labeled as "Hot". "Hot" events should have a red border or some sort of visual flourish. The event title should also be prefixed with "**HOT:**".
 * [ ] Instead of showing all of the events on the main page, an "admin" user can dictate the events that show up on the main page.
@@ -59,7 +59,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2015 Hoang Duc Nha <hdnha11@gmail.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
