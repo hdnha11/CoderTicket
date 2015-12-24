@@ -7,10 +7,10 @@ class Event < ActiveRecord::Base
   validates_uniqueness_of :name, uniqueness: {scope: [:venue, :starts_at]}
 
   def self.current_events
-    where('ends_at >= ?', DateTime.current)
+    where('draft is not true and ends_at >= ?', DateTime.current)
   end
 
   def self.search(query)
-    where('lower(name) like ?', "%#{query.downcase}%")
+    where('draft is not true and lower(name) like ?', "%#{query.downcase}%")
   end
 end
