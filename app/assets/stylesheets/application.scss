@@ -9,9 +9,11 @@
 @import "events";
 @import "tickets";
 @import "bookings";
+@import "login";
 
 body {
   font-family: 'Open Sans';
+  background-color: #eceeef;
 }
 .btn.btn-danger {
   background-color: rgb(216, 87, 66);
